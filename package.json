@@ -1,0 +1,29 @@
+{
+  "name": "codemates",
+  "version": "1.0.0",
+  "description": "app to connect developers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1" ,
+    "dev" : "nodemon src/app.js",
+    "start" : "node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/namangoyal16/CodeMates.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "Javascript"
+  ],
+  "author": "Naman Goyal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/namangoyal16/CodeMates/issues"
+  },
+  "homepage": "https://github.com/namangoyal16/CodeMates#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.11"
+  }
+}
