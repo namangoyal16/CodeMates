@@ -2,9 +2,18 @@ const express = require('express');
 
 const app = express();
 
-app.use("/hello",(req,res)=>{
-    res.send("Hi boy");
-})
+// app.use("/",(req,res)=>{
+//     res.send("Hi");
+// })
+
+app.get("/user", (req , res)=>{
+  res.send("hahahha");
+});
+
+app.post("/user", (req,res)=>{
+   res.send("Data saved successfully");
+});
+
 
 app.listen(7777, ()=>{
     console.log("server is successfully running");
