@@ -1,21 +1,36 @@
 const express = require('express');
+const connectDB = require("./configs/database");
+const User = require("./models/user");
 
 const app = express();
+app.use(express.json());   // <---- super important
 
-// app.use("/",(req,res)=>{
-//     res.send("Hi");
-// })
+app.post("/signup" ,async (req,res)=>{
 
-app.get("/user", (req , res)=>{
-  res.send("byeeee");
+  const userObj = {
+     firstName : "Naman",
+     lastName : "Goyal",
+     emailId : "naman.eclipse@gmail.com",
+     password :"Naman@123"
+  }
+
+  try{
+    const user = new User(userObj);
+    await user.save();
+    res.send("User saved successfully");
+  }catch(err){
+    console.log(err);
+    res.send("Error saving user");
+  }
 });
 
-app.post("/user", (req,res)=>{
-   res.send("Data saved successfully");
-});
+const startServer = async () =>{
+  try{
+    await connectDB();
+    app.listen(7777, ()=> console.log("Server running on 7777"));
+  }catch(err){
+    console.log("DB connection failed, server not started.");
+  }
+}
 
-
-app.listen(7777, ()=>{
-    console.log("server is successfully running");
-})
-
+startServer();
